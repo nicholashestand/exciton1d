@@ -41,7 +41,7 @@ the dispersion curve of the lowest energy exciton. A simple
 python script called showspec.py is provided to view the program output. 
 To use this script enter the command
 
-python ./showscript ./task_title
+python ./showspec.py ./task_title
 
 Where task_title is the name given to the simulation. For example,
 in the example.inp file task_title is set to example.
