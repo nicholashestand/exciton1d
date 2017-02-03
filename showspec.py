@@ -9,8 +9,8 @@ dispf = task_title + '_disp.csv'
 spec = np.loadtxt(specf,delimiter=',',skiprows=1)
 disp = np.loadtxt(dispf,delimiter=',',skiprows=1)
 
-#normalize the absorption data
-#spec[:,1] = spec[:,1]/spec[:,1].max()
+#normalize dispersion data to pi
+disp[:,0] = 2*disp[:,0]/len(disp)
 
 #plot the spectrum with matplotlib
 plt.subplot(2,1,1)
@@ -21,7 +21,7 @@ plt.title('Absorption Spectrum')
 
 #plot the dispersion with matplotlib
 plt.subplot(2,1,2)
-plt.plot( disp[:,0], disp[:,1], c='r' )
+plt.plot( disp[:,0], disp[:,1], c='b' )
 plt.xlabel(r'k ($\pi$)')
 plt.ylabel(r'Energy (h$\omega$)')
 plt.title('Lowest Exciton Dispersion')
