@@ -12,7 +12,7 @@ The Hamiltonian is represented in a multiparticle basis. For
 more information, see the following papers and references therin:
 
     Spano, F.C. Acc. Chem. Res. 2010
-    Hestand, N.J.; Spano, F.C. Acc. Chem. Res. 2016
+    Hestand, N.J.; Spano, F.C. Acc. Chem. Res. 2017
 
 If you use the results from this program in a publication,
 please cite the above papers.
@@ -28,12 +28,12 @@ your system.
 Once compiled, the program can be run from the command line. An
 input file containing simulation parameters can be provided as
 the first argument. An example input file with parameter explinations
-is provided in example.inp. For example, run the program by entering
+is provided in example.inp. For example, run the program with 
 
 ./exciton1D ./example.inp
 
 After running the program, three csv files are produced, one contains
-the simulations para and has the extension _para.csv while the
+the simulation parameters and has the extension _para.csv while the
 other two contain simulation data. The first has the
 extension _ab.csv and the second has the extension _disp.csv. The
 former contains the absorption spectrum and the latter contains 

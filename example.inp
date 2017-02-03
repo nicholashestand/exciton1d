@@ -2,43 +2,37 @@
 #                 Example input file for exciton1D                   #
 ######################################################################
 #
-#--------------------#
+#--------------------------------------------------------------------#
 #Simulation Title
-#--------------------#
+#--------------------------------------------------------------------#
 task_title example
-#--------------------#
-#Aggregate Dimensions
-#--------------------#
+#--------------------------------------------------------------------#
+#Number of molecules
+#--------------------------------------------------------------------#
 nmol           20
-#--------------------#
+#--------------------------------------------------------------------#
 #Basis set parameters
-#--------------------#
-vibmax         5
-one_state      true
-two_state      true
-ct_state       true
-#--------------------#
-#System Parameters 
-#(in wavenumbers)
-#--------------------#
-hw             1400.d0
-lambda            1.d0
-lambda+           0.5d0
-lambda-           0.5d0
-JCoul           350.d0
-ES1           14000.d0
-te              350.d0
-th              350.d0
-ECT           14000.d0
-#--------------------#
-#Spectrum Parameters 
-#(in wavenumbers)
-#--------------------#
-abs_lw          350.d0
-#--------------------#
-#Eigenvalue search number
-#make big enough to find all
-#eigenvalues you want, per k
-#-------------------#
-esnum         100000
+#--------------------------------------------------------------------#
+vibmax         5        #maximum number of vibrations
+one_state      true     #include one particle states (t/f)
+two_state      true     #include two particle states (t/f)
+ct_state       true     #include charge-transfer states (t/f)
+#--------------------------------------------------------------------#
+#Simulation Parameters (in wavenumbers)
+#--------------------------------------------------------------------#
+hw             1400.d0  #vibrational energy
+lambda            1.d0  #neutral lambda (sqrt of Huang-Rhys parameter)
+lambda+           0.5d0 #cation lambda
+lambda-           0.5d0 #anion lambda
+JCoul           350.d0  #nearest neighbor Coulomb coupling
+ES1           14000.d0  #monomer Frenkel exciton energy
+te              350.d0  #nearest-neighbor electron transfer integral
+th              350.d0  #nearest-neighbor hole transfer integral
+ECT           14000.d0  #energy of nearest-neighbor charge-transfer state
+abs_lw          350.d0  #absorption linewidth
+#--------------------------------------------------------------------#
+#Eigenvalue search number make big enough to find all eigenvalues 
+#you want, per k
+#--------------------------------------------------------------------#
+esnum         10000
 # END OF FILE
