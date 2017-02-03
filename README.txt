@@ -1,0 +1,58 @@
+                          Exciton1D
+                          ---------
+
+What is it?
+-----------
+
+This program calculates the absorption spectrum and band dispersion
+of a 1 Dimensional molecular aggregate by solving the Holstein
+Hamiltonian. Three types of excitations are considered; Frenkel
+excitons, charge-transfer excitons, and vibrational excitons.
+The Hamiltonian is represented in a multiparticle basis. For
+more information, see the following papers and references therin:
+
+    Spano, F.C. Acc. Chem. Res. 2010
+    Hestand, N.J.; Spano, F.C. Acc. Chem. Res. 2016
+
+If you use the results from this program in a publication,
+please cite the above papers.
+
+
+How do I use it?
+----------------
+
+The program can be compiled using make and the supplied makefile.
+You may need to edit the makefile so that it is appropriate for
+your system. 
+
+Once compiled, the program can be run from the command line. An
+input file containing simulation parameters can be provided as
+the first argument. An example input file with parameter explinations
+is provided in example.inp. For example, run the program by entering
+
+./exciton1D ./example.inp
+
+After running the program, three csv files are produced, one contains
+the simulations para and has the extension _para.csv while the
+other two contain simulation data. The first has the
+extension _ab.csv and the second has the extension _disp.csv. The
+former contains the absorption spectrum and the latter contains 
+the dispersion curve of the lowest energy exciton. A simple
+python script called showspec.py is provided to view the program output. 
+To use this script enter the command
+
+python ./showscript ./task_title
+
+Where task_title is the name given to the simulation. For example,
+in the example.inp file task_title is set to example.
+
+
+What libraries are required?
+----------------------------
+
+To build the exciton1D program:
+LAPACK
+
+If you want to use the showspec.py script:
+numpy
+matplotlib
