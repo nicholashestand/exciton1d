@@ -1,5 +1,6 @@
 !*********************************************************************!
-!        write parameters to file
+!        Write the simulation parameters to a file so that the        !
+!   simulation can be reproduced at a later time.                     !
 !*********************************************************************!
 subroutine para_out()
     use commonvar

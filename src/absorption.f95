@@ -1,6 +1,23 @@
 !*********************************************************************!
-!        calculate the absorption spectrum and write to file          !
+!        Calculate the absorption spectrum and write to file          !
 !                                                                     !
+!   The transition dipole moment is given by:                         !
+!                                                                     !
+!   <G|u|W_i> = sum_(k,v) c_(k,v) <0|v> if k=0, 0 otherwise           !
+!   where <0|v> is the vibrational overlap factor and W_i is the ith  !
+!   eigenstate, expanded in terms of local basis states as            !
+!                                                                     !
+!   W_i = sum_(n,v) c_(n,v)|n,v> + two particle + ct                  !
+!                                                                     !
+!   ONLY ONE PARTICLE STATES ABSORB!!!                                !
+!                                                                     !
+!   Absorption to state i is proportional to the transition dipole    !
+!   moment squared: |<G|u|W_i>|^2                                     !
+!                                                                     !
+!   The absorption spectrum is given by:                              !
+!       A(E) = sum_(i) |<G|u|W_i>|^2 Gamma(E-E_i, abs_lw)             !
+!   Where Gamma is a normal distribution with mean E-E_i and          !
+!   standard deviation abs_lw. E_i is the energy of the ith eigenstate!
 !*********************************************************************!
 subroutine absorption()
     use commonvar

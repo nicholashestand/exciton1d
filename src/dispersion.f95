@@ -1,6 +1,6 @@
 !*********************************************************************!
 !               write the exciton dispersion to a file                !
-!    These are just the lowest eigenvalues for each k                 !
+!    These are the lowest eigenvalues for each k                      !
 !*********************************************************************!
 subroutine dispersion(k)
     use commonvar
