@@ -59,29 +59,3 @@ subroutine build_hct(k)
     end do
 
 end subroutine
-!*********************************************************************!
-!       bring index inside the periodic range                         !
-!*********************************************************************!
-integer function bring_inside_nxrange(s)
-    use commonvar
-    implicit none
-    integer, intent(in) :: s
-
-    bring_inside_nxrange = s
-    if ( s > nubnd ) bring_inside_nxrange = s - nmol
-    if ( s < nlbnd  ) bring_inside_nxrange = s + nmol
-    return
-
-end function
-!*********************************************************************!
-!      the kronecker delta function... move                           !
-!*********************************************************************!
-integer function kd(n,m)
-    integer, intent(in) :: n, m
-
-    kd = 0
-    if ( n == m ) kd = 1
-
-    return
-end function
-

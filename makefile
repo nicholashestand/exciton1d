@@ -5,7 +5,7 @@ mySRCFILES= exciton_main.f95 read_in_para.f95      \
 		    set_fctable.f95 build_h1p.f95 build_h2p.f95 \
             build_h1p2p.f95 build_hct.f95 build_h1pct.f95 \
 			build_h2pct.f95 diagonalize.f95 absorption.f95 \
-			dispersion.f95 para_out.f95
+			dispersion.f95 para_out.f95 kd.f95 bring_inside_nxrange.f95
 myOBJFILES=$(mySRCFILES:.f95=.o)
 myEXE=exciton1D.exe
 myDEP=commonvar.mod
