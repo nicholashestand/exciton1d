@@ -54,7 +54,9 @@ subroutine absorption()
     write( fno, * ) 'energy,absorption'
 
     nsteps = floor((dabs(maxval(eval) - minval(eval)) + 8.d0*abs_lw)/(10/hw))   !10cm-1 resolution
-    step = (maxval(eval) - minval(eval) + 8.d0*abs_lw)/(1.d0*nsteps)
+    ! restrict to a 10000 cm window, in case the ectinf is set very high
+    nsteps = min( nsteps, 1000 )
+    step = (min(maxval(eval),minval(eval) + 10000/hw) - minval(eval) + 8.d0*abs_lw)/(1.d0*nsteps)
     photon_energy = minval(eval)-4.d0*abs_lw
     do point = 1, nsteps
         photon_energy = photon_energy + step
