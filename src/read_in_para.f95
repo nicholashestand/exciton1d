@@ -84,6 +84,9 @@ subroutine read_in_para()
             case('ECT')
                 read( buff, *, iostat=ios) ECT
                 print'(a,f8.2)', '    Setting ECT to (cm-1): ', ECT
+            case('ECTInf')
+                read( buff, *, iostat=ios) ECTInf
+                print'(a,f8.2)', '    Setting ECTInf to (cm-1): ', ECTInf
             case('one_state')
                 read( buff, *, iostat=ios) one_state
                 if ( one_state ) &
@@ -130,7 +133,8 @@ subroutine read_in_para()
     te     = te / hw
     th     = th / hw
     ECT    = ECT / hw
-    abs_lw = abs_lw /hw
+    ECTInf = ECTInf / hw
+    abs_lw = abs_lw / hw
     
     !Set all Huang-Rhys factors to zero if vibmax is zero
     !This assumes that the user just wants to calculate the
@@ -139,6 +143,7 @@ subroutine read_in_para()
         lambda_n = 0.d0
         lambda_c = 0.d0
         lambda_a = 0.d0
+        print'(a)', '>> vibmax is zero. Setting all lambda to zero'
     end if
 
     !set the maximum left and right displacement from a 

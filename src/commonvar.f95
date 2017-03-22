@@ -28,6 +28,7 @@ module commonvar
     real*8 :: te        = 0.d0        !Nearest neighbor electron transfer integral
     real*8 :: th        = 0.d0        !Nearest neighbor hole transfer integral
     real*8 :: ECT       = 0.d0        !Charge Transfer Energy
+    real*8 :: ECTInf    = 0.d0        !Charge Transfer Energy and Infinite Separation
     
     !multiparticle basis states
     logical :: one_state    =.true.
