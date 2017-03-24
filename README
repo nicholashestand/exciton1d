@@ -33,12 +33,13 @@ is provided in example.inp. For example, run the program with
 
 ./exciton1D ./example.inp
 
-After running the program, three csv files are produced, one contains
+After running the program, four csv files are produced, one contains
 the simulation parameters and has the extension _para.csv while the
-other two contain simulation data. The first has the
-extension _ab.csv and the second has the extension _disp.csv. The
-former contains the absorption spectrum and the latter contains 
-the dispersion curve of the lowest energy exciton. A simple
+other three contain simulation data. The first has the
+extension _ab.csv, the second has the extension _disp.csv and the
+third has the extension _mom.csv. The first contains the absorption 
+spectrum, the second the dispersion curve of the lowest energy exciton,
+and the third, the moments of the absorption spectrum. A simple
 python script called showspec.py is provided to view the program output. 
 To use this script enter the command
 
