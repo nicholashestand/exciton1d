@@ -4,6 +4,7 @@
 !   states is given by                                                !
 !       <k,v|H|k,v',s,v''> = te*FC(0|v'')*FC(v'|v) +                  !
 !                            th*exp(-2*pi*i*k*s/N)*FC(0|v')*FC(v''|v) !
+!   for s = +-1 and 0 otherwise
 !*********************************************************************!
 subroutine build_h1pct(k)
     use commonvar
@@ -29,7 +30,7 @@ subroutine build_h1pct(k)
             !we only have nearest-neighbor coupling
             if ( sa == -1 .or. sa == 1 ) then
                 h( h1, h2 ) = te*fc_ga(0,viba)*fc_cf(vibc,vib) +    &
-                          th*cdexp(-2.d0*pi*img*k*sa/(1.d0*nmol)) * &
+                          th*cdexp(2.d0*pi*img*k*sa/(1.d0*nmol)) * &
                           fc_gc(0,vibc)*fc_af(viba,vib)
                 h( h2, h1 ) = dconjg( h(h1,h2) )
             end if

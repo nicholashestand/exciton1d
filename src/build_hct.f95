@@ -47,7 +47,7 @@ subroutine build_hct(k)
             ! calculate the matrix element
             h( h1, h2 ) = te * fc_ga(0,viba)*fc_ga(0,viba2)*kd(vibc, vibc2) + &
                           th * fc_gc(0,vibc)*fc_gc(0,vibc2)*kd(viba, viba2) * &
-                          cdexp(-2.d0*pi*img*k*s/(1.d0*nmol))
+                          cdexp(2.d0*pi*img*k*s/(1.d0*nmol))
             h( h2, h1 ) = dconjg( h( h1, h2 ) )
 
         end do
