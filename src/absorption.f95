@@ -71,7 +71,7 @@ subroutine absorption()
     ! calculate the absorption spectrum and write to file
     fno = 999
     open( unit = fno, file = trim(task_title)//'_ab.csv')
-    write( fno, * ) 'energy,absorption'
+    !write( fno, * ) 'energy,absorption'
 
     ! stet number of spectral points to be evaluated
     nsteps = floor((dabs(maxval(eval) - minval(eval)) &
@@ -81,19 +81,23 @@ subroutine absorption()
     nsteps = min( nsteps, 1000 )
     step = (min(maxval(eval),minval(eval) + 10000/hw) - minval(eval) &
                 + 8.d0*abs_lw)/(1.d0*nsteps)
-    photon_energy = minval(eval)-4.d0*abs_lw
+    photon_energy = minval(eval)-8.d0*abs_lw
     do point = 1, nsteps
         photon_energy = photon_energy + step
         ab = 0.d0
     do state = 1, kount
         transition_energy = eval(state)
         ! gaussian lineshape function
-        lineshape = dexp(-(photon_energy - transition_energy)**2/     &
-                          (2.d0*abs_lw**2))/                          &
-                          dsqrt(2.d0*abs_lw**2*pi)
+        !lineshape = dexp(-(photon_energy - transition_energy)**2/     &
+        !                  (2.d0*abs_lw**2))/                          &
+        !                  dsqrt(2.d0*abs_lw**2*pi)
+        ! lorentzian lineshape function
+        lineshape = abs_lw/(1)/                                         &
+                    ((photon_energy-transition_energy)**2 + abs_lw**2 )
         ab = ab + osc(state)*lineshape
+        ! lorentzian lineshape function
     end do
-        write( fno, '(f14.7",",f14.7)' ) photon_energy, ab
+        write( fno, '(f14.7" ",f14.7)' ) photon_energy*hw, ab
     end do
     close( fno )
 
@@ -119,13 +123,13 @@ subroutine absorption()
 
     ! write the moments to a file
     open( unit = fno, file = trim(task_title)//'_mom.csv' )
-    write( fno, '(a)' ), 'Moments of the absorption spectrum'
-    write(fno, '(a)'), 'Moment Number, Moment Value'
+    write(fno, '(a)') 'Moments of the absorption spectrum'
+    write(fno, '(a)') 'Moment Number, Moment Value'
     do m = 1, 3
         write( fno, '(i2,",",f14.6)' ) m, moment(m)
     end do
-    write( fno, '(a)' ), 'Central moments of the absorption spectrum'
-    write(fno, '(a)'), 'Moment Number, Moment Value'
+    write(fno, '(a)') 'Central moments of the absorption spectrum'
+    write(fno, '(a)') 'Moment Number, Moment Value'
     do m = 1, 3
         write( fno, '(i2,",",f14.6)' ) m, cmoment(m)
     end do
