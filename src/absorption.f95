@@ -75,13 +75,13 @@ subroutine absorption()
 
     ! stet number of spectral points to be evaluated
     nsteps = floor((dabs(maxval(eval) - minval(eval)) &
-                + 8.d0*abs_lw)/(10/hw))   !10cm-1 resolution
+                + 64.d0*abs_lw)/(10/hw))   !10cm-1 resolution
 
     ! restrict to a 10000 cm window, in case the ectinf is set very high
-    nsteps = min( nsteps, 1000 )
+    nsteps = min( nsteps, 10000 )
     step = (min(maxval(eval),minval(eval) + 10000/hw) - minval(eval) &
-                + 8.d0*abs_lw)/(1.d0*nsteps)
-    photon_energy = minval(eval)-8.d0*abs_lw
+                + 32.d0*abs_lw)/(1.d0*nsteps)
+    photon_energy = minval(eval)-16.d0*abs_lw
     do point = 1, nsteps
         photon_energy = photon_energy + step
         ab = 0.d0
